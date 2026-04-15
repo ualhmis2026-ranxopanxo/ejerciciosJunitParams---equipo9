@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ual.hmis.sesion06.ejercicio5.ContadorDePalabrasTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s -- in ual.hmis.sesion06.ejercicio5.ContadorDePalabrasTest

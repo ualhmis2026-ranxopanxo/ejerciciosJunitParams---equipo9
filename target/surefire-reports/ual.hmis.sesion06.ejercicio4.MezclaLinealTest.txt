@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ual.hmis.sesion06.ejercicio4.MezclaLinealTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s -- in ual.hmis.sesion06.ejercicio4.MezclaLinealTest
