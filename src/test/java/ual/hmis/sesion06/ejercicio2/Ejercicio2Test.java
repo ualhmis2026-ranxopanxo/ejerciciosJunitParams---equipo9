@@ -33,7 +33,7 @@ class Ejercicio2Test {
     @ParameterizedTest
     @CsvSource({
             "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, Pass1",
-            "user, Aaaaaaaaaaaaaaaaaaaaaaaaaaaa1"
+            "user, Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1"
     })
     void login_devuelveFalse_siLongitudEs30OMas(String username, String password) {
         assertEquals(false, ejercicio.login(username, password));

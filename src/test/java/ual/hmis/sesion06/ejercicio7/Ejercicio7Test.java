@@ -14,7 +14,14 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class Ejercicio7Test {
-
+    
+    @org.junit.jupiter.api.Test
+    void constructor_puedeInstanciarse() throws Exception {
+        java.lang.reflect.Constructor<Ejercicio7> constructor = Ejercicio7.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
+    
     @ParameterizedTest
     @MethodSource("casosValidos")
     void aleatorizacion_mantieneLosMismosElementos(String methodName, int[] original) throws Exception {

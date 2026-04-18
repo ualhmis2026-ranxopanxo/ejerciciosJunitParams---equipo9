@@ -34,8 +34,7 @@ public class Ejercicio6 {
             return switch (origen) {
                 case "celsius" -> convertirDesdeCelsius(temperature, destino);
                 case "fahrenheit" -> convertirDesdeFahrenheit(temperature, destino);
-                case "kelvin" -> convertirDesdeKelvin(temperature, destino);
-                default -> Double.NaN;
+                default -> convertirDesdeKelvin(temperature, destino);
             };
         }
 
@@ -44,27 +43,27 @@ public class Ejercicio6 {
         }
 
         private double convertirDesdeCelsius(double temperatura, String destino) {
-            return switch (destino) {
-                case "fahrenheit" -> (temperatura * 9 / 5) + 32;
-                case "kelvin" -> temperatura + 273.15;
-                default -> Double.NaN;
-            };
+            if (destino.equals("fahrenheit")) {
+                return (temperatura * 9 / 5) + 32;
+            } else {
+                return temperatura + 273.15;
+            }
         }
 
         private double convertirDesdeFahrenheit(double temperatura, String destino) {
-            return switch (destino) {
-                case "celsius" -> (temperatura - 32) * 5 / 9;
-                case "kelvin" -> ((temperatura - 32) * 5 / 9) + 273.15;
-                default -> Double.NaN;
-            };
+            if (destino.equals("celsius")) {
+                return (temperatura - 32) * 5 / 9;
+            } else {
+                return ((temperatura - 32) * 5 / 9) + 273.15;
+            }
         }
 
         private double convertirDesdeKelvin(double temperatura, String destino) {
-            return switch (destino) {
-                case "celsius" -> temperatura - 273.15;
-                case "fahrenheit" -> ((temperatura - 273.15) * 9 / 5) + 32;
-                default -> Double.NaN;
-            };
+            if (destino.equals("celsius")) {
+                return temperatura - 273.15;
+            } else {
+                return ((temperatura - 273.15) * 9 / 5) + 32;
+            }
         }
     }
 }
