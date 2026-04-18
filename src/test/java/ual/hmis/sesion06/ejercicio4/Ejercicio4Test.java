@@ -21,6 +21,7 @@ class Ejercicio4Test {
             "17, true",
             "1, false",
             "0, false",
+            "4, false",
             "9, false",
             "21, false"
     })
