@@ -197,7 +197,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.20.0</version>
+                <version>3.21.2</version>
                 <configuration>
                     <linkXref>true</linkXref>
                     <sourceEncoding>utf-8</sourceEncoding>
@@ -205,8 +205,8 @@
                     <targetJdk>17</targetJdk>
                     <skipEmptyReport>false</skipEmptyReport>
                     <rulesets>
-                        <ruleset>/rulesets/java/braces.xml</ruleset>
-                        <ruleset>/rulesets/java/naming.xml</ruleset>
+                        <ruleset>category/java/codestyle.xml</ruleset>
+                        <ruleset>category/java/bestpractices.xml</ruleset>
                     </rulesets>
                 </configuration>
             </plugin>
@@ -244,9 +244,8 @@
 		<artifactId>dependency-check-maven</artifactId>
 		<version>8.2.1</version>
 		<configuration>
-            <skip>true</skip>
 			<skipTestScope>false</skipTestScope>
-            <nvdApiKey>b1a40251-e93a-43eb-aa9b-d8a8468d8137</nvdApiKey>
+            <nvdApiKey>${nvd.api.key}</nvdApiKey>
 			<formats>
 				<format>HTML</format>
 				<format>XML</format>
@@ -255,7 +254,7 @@
 		<reportSets>
 			<reportSet>
 				<reports>
-					<report>aggregate</report>
+					<report>check</report>
 				</reports>
 			</reportSet>
 		</reportSets>
