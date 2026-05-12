@@ -70,9 +70,11 @@ pipeline {
             }
             post {
                 success {
-                    // sect. 7.4 — OWASP Dependency-Check (skipped in CI)
-                    if (fileExists('sesion05/target/site/dependency-check-report.xml')) {
-                        dependencyCheckPublisher pattern: 'sesion05/target/site/dependency-check-report.xml'
+                    script {
+                        // sect. 7.4 — OWASP Dependency-Check (skipped in CI)
+                        if (fileExists('sesion05/target/site/dependency-check-report.xml')) {
+                            dependencyCheckPublisher pattern: 'sesion05/target/site/dependency-check-report.xml'
+                        }
                     }
 
                     // sect. 7.3 — Warnings Next Generation plugin required for all below
