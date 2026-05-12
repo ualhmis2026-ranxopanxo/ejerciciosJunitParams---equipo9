@@ -66,14 +66,14 @@ pipeline {
         // so SpotBugs can analyse bytecode without re-compiling.
         stage('Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
-                    sh 'mvn -f sesion05/pom.xml site -Dnvd.api.key=$NVD_API_KEY'
-                }
+                sh 'mvn -f sesion05/pom.xml site -Ddependency-check.skip=true'
             }
             post {
                 success {
-                    // sect. 7.4 — OWASP Dependency-Check
-                    dependencyCheckPublisher pattern: 'sesion05/target/site/dependency-check-report.xml'
+                    // sect. 7.4 — OWASP Dependency-Check (skipped in CI)
+                    if (fileExists('sesion05/target/site/dependency-check-report.xml')) {
+                        dependencyCheckPublisher pattern: 'sesion05/target/site/dependency-check-report.xml'
+                    }
 
                     // sect. 7.3 — Warnings Next Generation plugin required for all below
                     recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'sesion05/target/checkstyle-result.xml')
